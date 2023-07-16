@@ -1,7 +1,4 @@
 import type { IProject } from '~/routes/index'
-// import Project from './Project';
-// import type { QwikMouseEvent } from '@builder.io/qwik';
-
 import type { QwikMouseEvent } from '@builder.io/qwik'
 import { component$, $, useContext, type PropFunction } from '@builder.io/qwik'
 import { Project } from '~/integrations/react/Project'
@@ -74,7 +71,7 @@ export const ProjectList = component$<ProjectListProps>(
             }
             class="h-cust px-padd flex items-center text-3xl"
           >
-            {project.name} {project.isOpened ? 'opened' : 'closed'}
+            {project.name}
           </div>
           <div
             class={[

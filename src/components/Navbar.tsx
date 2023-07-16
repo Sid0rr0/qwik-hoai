@@ -1,7 +1,9 @@
-import { component$, useSignal,  } from '@builder.io/qwik'
+import { component$, useContext, useSignal } from '@builder.io/qwik'
+import { SelectedProjectsTypeContext } from '~/routes/layout'
 
 export default component$(() => {
   const isInfoOpen = useSignal(false)
+  const isArtSelected = useContext(SelectedProjectsTypeContext)
 
   return (
     <>
@@ -10,26 +12,24 @@ export default component$(() => {
           <li>
             <a href="#">L&#234; Th&#x1ECB; Ho&#224;i</a>
           </li>
-          {/* <li>
+          <li>
             <button
-              onClick$={(e) => {
-                e.stopPropagation()
-                changeList(false)
+              onClick$={() => {
+                isArtSelected.value = false
               }}
             >
-              <Image src="/fire1.png" width={30} height={30} alt="Art" />
+              <img src="/fire1.png" width={30} height={30} alt="Design" />
             </button>
           </li>
           <li>
             <button
-              onClick$={(e) => {
-                e.stopPropagation()
-                changeList(true)
+              onClick$={() => {
+                isArtSelected.value = true
               }}
             >
-              <Image src="/fire2.png" width={30} height={30} alt="Art" />
+              <img src="/fire2.png" width={30} height={30} alt="Art" />
             </button>
-          </li> */}
+          </li>
           <li>
             <a
               href="#"

@@ -1,9 +1,10 @@
-import { component$, useSignal, useStore, $ } from '@builder.io/qwik'
+import { component$, useStore, $, useContext } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 import type { BuilderAPI, Data } from '~/interfaces/api'
 
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { ProjectList } from '~/components/ProjectList'
+import { SelectedProjectsTypeContext } from './layout'
 
 export interface IProject extends Data {
   id: string
@@ -47,7 +48,8 @@ export const useProjectData = routeLoader$(async (requestEvent) => {
 
 export default component$(() => {
   const signal = useProjectData()
-  const isArtSelected = useSignal(false)
+  // const isArtSelected = useSignal(false)
+  const isArtSelected = useContext(SelectedProjectsTypeContext)
   const designList = useStore(signal.value.design)
   const artList = useStore(signal.value.art)
 
@@ -62,15 +64,24 @@ export default component$(() => {
       designList[index].hasBeenOpened = true
     }
 
-    console.log(project.isOpened, type)
+    console.log(designList, artList)
   })
 
   return (
     <>
-      <ProjectList
+      {/* <ProjectList
         projectList={isArtSelected.value ? artList : designList}
         updateList$={updateProjectList$}
-      />
+      /> */}
+
+      {isArtSelected.value ? (
+        <ProjectList projectList={artList} updateList$={updateProjectList$} />
+      ) : (
+        <ProjectList
+          projectList={designList}
+          updateList$={updateProjectList$}
+        />
+      )}
     </>
   )
 })

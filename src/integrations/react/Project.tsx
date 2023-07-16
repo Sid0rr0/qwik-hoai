@@ -11,9 +11,20 @@ export interface ProjectProps {
   project: IProject
 }
 
+const sizes = [["178", "333"], ["267", "500"], ["534", "1000"], ["1068", "2000"]]
+
 const RProject = ({ project }: { project: IProject }) => {
   const carousel = project.image.map((image) => (
-    <img src={image.image} key={image.image} width="2000" height="1068" />
+    // <img src={image.image} key={image.image} width="2000" height="1068" />
+		
+    <picture>
+      <source srcSet={`${sizes.reduce((acc, [height, width]) => acc + `${image.image}?height=${height}&width=${width}&format=webp ${width}w, `, "")}`} type="image/webp" />
+      <img
+        srcSet={`${image.image}?height=267&width=500&format=webp`}
+        width="1000"
+        height="534"
+      />
+    </picture>
   ))
 
   if (project.videoLink) {
