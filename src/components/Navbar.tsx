@@ -1,5 +1,7 @@
 import { component$, useContext, useSignal } from '@builder.io/qwik'
 import { SelectedProjectsTypeContext } from '~/routes/layout'
+// import ImgFire1 from '~/media/fire1.png?jsx';
+// import ImgFire2 from '~/media/fire2.png?jsx';
 
 export default component$(() => {
   const isInfoOpen = useSignal(false)
@@ -28,6 +30,7 @@ export default component$(() => {
               }}
             >
               <img src="/fire2.png" width={30} height={30} alt="Art" />
+              {/* <ImgFire2 /> */}
             </button>
           </li>
           <li>

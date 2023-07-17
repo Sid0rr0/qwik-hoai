@@ -69,19 +69,19 @@ export default component$(() => {
 
   return (
     <>
-      {/* <ProjectList
+      <ProjectList
         projectList={isArtSelected.value ? artList : designList}
         updateList$={updateProjectList$}
-      /> */}
+      />
 
-      {isArtSelected.value ? (
+      {/* {isArtSelected.value ? (
         <ProjectList projectList={artList} updateList$={updateProjectList$} />
       ) : (
         <ProjectList
           projectList={designList}
           updateList$={updateProjectList$}
         />
-      )}
+      )} */}
     </>
   )
 })
