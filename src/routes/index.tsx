@@ -19,14 +19,24 @@ export interface IProjectList {
   design: IProject[]
 }
 
-export const useProjectData = routeLoader$(async (/* requestEvent */) => {
+export const useProjectData = routeLoader$(async (requestEvent) => {
   // This code runs only on the server, after every navigation
+  // const res = await fetch(
+  //   `https://cdn.builder.io/api/v3/content/project?apiKey=${
+  //     import.meta.env.PUBLIC_API_KEY
+  //   }`
+  // )
+
   const res = await fetch(
-    `https://cdn.builder.io/api/v3/content/project?apiKey=${
-      import.meta.env.PUBLIC_API_KEY
-    }`
+    `https://cdn.builder.io/api/v3/content/project?apiKey=${requestEvent.env.get(
+      'API_KEY'
+    )}`
   )
   const product = (await res.json()) as BuilderAPI
+
+  if (product.results.length === 0) {
+    return { art: [], design: [] }
+  }
 
   const data: IProjectList = {
     art: [],
