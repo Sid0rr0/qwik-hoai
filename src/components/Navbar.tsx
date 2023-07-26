@@ -1,15 +1,15 @@
-import { component$, useContext, useSignal } from '@builder.io/qwik'
-import { SelectedProjectsTypeContext } from '~/routes/layout'
+import { component$, useContext } from '@builder.io/qwik'
+import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/routes/layout'
 // import ImgFire1 from '~/media/fire1.png?jsx';
 // import ImgFire2 from '~/media/fire2.png?jsx';
 
 export default component$(() => {
-  const isInfoOpen = useSignal(false)
   const isArtSelected = useContext(SelectedProjectsTypeContext)
+  const isInfoOpen = useContext(InfoOpenedContext)
 
   return (
     <>
-      <header class="bg-gradient-to-b from-pink-500">
+      <header class="bg-gradient-to-b from-lust">
         <ul class="flex justify-between items-center px-2 h-cust text-3xl px-padd">
           <li>
             <a href="#">L&#234; Th&#x1ECB; Ho&#224;i</a>

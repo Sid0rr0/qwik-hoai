@@ -25,17 +25,22 @@ export const useServerTimeLoader = routeLoader$(() => {
 export const SelectedProjectsTypeContext = createContextId<Signal<boolean>>(
   'SelectedProjectsTypeContext'
 )
+export const InfoOpenedContext = createContextId<Signal<boolean>>(
+  'InfoOpenedContext'
+)
 
 export default component$(() => {
   const isArtSelected = useSignal(false)
+  const isInfoOpened = useSignal(false)
   useContextProvider(SelectedProjectsTypeContext, isArtSelected)
+  useContextProvider(InfoOpenedContext, isInfoOpened)
   return (
     <>
       <Navbar />
       <main>
         <Slot />
       </main>
-      <footer class="bg-gradient-to-t from-pink-500 absolute bottom-0 left-0 h-cust w-screen" />
+      <footer class="bg-gradient-to-t from-lust absolute bottom-0 left-0 h-cust w-screen" />
     </>
   )
 })

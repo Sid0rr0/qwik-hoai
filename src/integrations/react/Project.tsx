@@ -17,7 +17,7 @@ const RProject = ({ project }: { project: IProject }) => {
   const carousel = project.image.map((image) => (
     // <img src={image.image} key={image.image} width="2000" height="1068" />
 		
-    <picture>
+    <picture key={image.image}>
       <source srcSet={`${sizes.reduce((acc, [height, width]) => acc + `${image.image}?height=${height}&width=${width}&format=webp ${width}w, `, "")}`} type="image/webp" />
       <img
         srcSet={`${image.image}?height=267&width=500&format=webp`}
@@ -72,8 +72,8 @@ const RProject = ({ project }: { project: IProject }) => {
   return (
     // <Collapse isOpened={true}>
     <>
-      <div className="h-[calc(100vh-3*theme('spacing.cust'))] grid grid-cols-[70%,30%]">
-        <div className="h-full pl-padd">
+      <div className="h-[calc(100vh-3*theme('spacing.cust'))]  flex flex-col lg:grid lg:grid-cols-[70%,30%]">
+        <div className="lg:h-full pl-padd">
           <Carousel
             dynamicHeight={false}
             showThumbs={false}
@@ -107,7 +107,7 @@ const RProject = ({ project }: { project: IProject }) => {
             {carousel}
           </Carousel>
         </div>
-        <div className="px-padd whitespace-pre-wrap">{project.description}</div>
+        <div className="p-padd lg:py-0 whitespace-pre-wrap">{project.description}</div>
       </div>
       {/* </Collapse> */}
     </>

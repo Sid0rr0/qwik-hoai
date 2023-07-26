@@ -4,7 +4,8 @@ import type { BuilderAPI, Data } from '~/interfaces/api'
 
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { ProjectList } from '~/components/ProjectList'
-import { SelectedProjectsTypeContext } from './layout'
+import { InfoOpenedContext, SelectedProjectsTypeContext } from './layout'
+import Info from '~/components/Info'
 
 export interface IProject extends Data {
   id: string
@@ -18,12 +19,12 @@ export interface IProjectList {
   design: IProject[]
 }
 
-export const useProjectData = routeLoader$(async (requestEvent) => {
+export const useProjectData = routeLoader$(async (/* requestEvent */) => {
   // This code runs only on the server, after every navigation
   const res = await fetch(
-    `https://cdn.builder.io/api/v3/content/project?apiKey=${requestEvent.env.get(
-      'API_KEY'
-    )}`
+    `https://cdn.builder.io/api/v3/content/project?apiKey=${
+      import.meta.env.PUBLIC_API_KEY
+    }`
   )
   const product = (await res.json()) as BuilderAPI
 
@@ -50,6 +51,7 @@ export default component$(() => {
   const signal = useProjectData()
   // const isArtSelected = useSignal(false)
   const isArtSelected = useContext(SelectedProjectsTypeContext)
+  const isInfoOpened = useContext(InfoOpenedContext)
   const designList = useStore(signal.value.design)
   const artList = useStore(signal.value.art)
 
@@ -64,11 +66,19 @@ export default component$(() => {
       designList[index].hasBeenOpened = true
     }
 
-    console.log(designList, artList)
+    // console.log(designList, artList)
   })
 
   return (
     <>
+      {/* <div
+        class={`translate-x-full transition-transform relative z-10 ${
+          isInfoOpened.value ? 'translate-x-0' : ''
+        }`}
+      >
+        <Info />
+      </div> */}
+      {isInfoOpened.value && <Info />}
       <ProjectList
         projectList={isArtSelected.value ? artList : designList}
         updateList$={updateProjectList$}

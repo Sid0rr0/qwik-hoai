@@ -1,40 +1,40 @@
-import React from 'react';
-// import { Collapse } from 'react-collapse';
-import styles from '../styles/Home.module.css';
-// import { fetchAPI } from "../lib/api";
-// import StrapiImage from '../Components/StrapiImage'
+import { Resource, component$, useResource$ } from '@builder.io/qwik'
+import type { Data, InfoAPI } from '~/interfaces/info'
 
-// import { useEffect, useState } from 'react'
+export default component$(() => {
+  console.log(import.meta.env.API_KEY, 'import.meta.env.API_KEY')
+  const infoData = useResource$<Data>(async () => {
+    // it will run first on mount (server), then re-run whenever prNumber changes (client)
+    // this means this code will run on the server and the browser
+    // track(() => prNumber.value);
+    // console.log(import.meta.env.API_KEY, 'import.meta.env.API_KEY')
 
-export default function Info(/* { isOpen, about } */) {
+    const res = await fetch(
+      `https://cdn.builder.io/api/v3/content/info?apiKey=${
+        import.meta.env.PUBLIC_API_KEY
+      }`
+    )
+    const result = (await res.json()) as InfoAPI
 
-	//console.log("Info", about.Description)
+    if (result.results.length === 0) {
+      return { text: 'Hoai' }
+    }
 
-	/*const [info, setInfo] = useState({})
+    return result.results[0].data
+  })
 
-	useEffect(async () => {
-		const about = await fetchAPI("/about");
+  const body = (data: Data) => (
+    <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white grid grid-cols-[55%,45%] z-10">
+      <div></div>
+      <p class="px-padd whitespace-pre-wrap overflow-auto">{data.text}</p>
+    </div>
+  )
 
-		setInfo({description: about.Description, profileImage: about.ProfileImage})
-
-	}, [])*/
-
-
-	return (
-		// <Collapse isOpened={isOpen}>
-		<div>
-			<div class={styles.info}>
-				<div id={styles.profileImage}>
-					{/* <StrapiImage image={about?.ProfileImage?.formats?.medium} imgClass="galleryImg" /> */}
-					{/* <StrapiImage image={info.profileImage?.formats?.medium} imgClass="galleryImg" /> */}
-					{/* <img src="http://localhost:1337/uploads/medium_info_78b47ba2f7.jpg" className={styles.profileImg} /> */}
-				</div>
-				<p>
-					{/* {info.description} */}
-					{/* {about.Description} */}
-				</p>
-			</div>
-			{/* </Collapse> */}
-			</div>
-	)
-}
+  return (
+    <Resource
+      value={infoData}
+      onPending={() => <div>loading...</div>}
+      onResolved={body}
+    />
+  )
+})

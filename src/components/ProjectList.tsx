@@ -53,7 +53,7 @@ export const ProjectList = component$<ProjectListProps>(
       return (
         <div
           key={project.position}
-          class=""
+          class="z-0"
           style={
             project.isOpened || project.hasBeenOpened
               ? { backgroundImage: getColor(project.position, 80), opacity: 1 }
@@ -86,7 +86,7 @@ export const ProjectList = component$<ProjectListProps>(
     })
 
     return (
-      <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full overflow-auto	">
+      <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full overflow-auto">
         {p}
       </div>
     )

@@ -5,7 +5,10 @@ module.exports = {
     extend: {
       spacing: {
         cust: '4.688rem',
-        padd: '1rem'
+        padd: '1rem',
+      },
+      colors: {
+        lust: '#E72024',
       },
     },
   },

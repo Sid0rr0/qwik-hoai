@@ -38,6 +38,11 @@ body {
   line-height: inherit;
 }
 
+p {
+  line-height: 1.5em;
+  font-size: 1.125rem;
+}
+
 .ReactCollapse--collapse {
   transition: height 400ms;
 }
