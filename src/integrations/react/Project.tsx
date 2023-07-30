@@ -6,19 +6,34 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import YouTube from 'react-youtube'
 import type { IProject } from '~/routes'
+// import { useState } from 'react'
 
 export interface ProjectProps {
   project: IProject
 }
 
-const sizes = [["178", "333"], ["267", "500"], ["534", "1000"], ["1068", "2000"]]
+const sizes = [
+  ['178', '333'],
+  ['267', '500'],
+  ['534', '1000'],
+  ['1068', '2000'],
+]
 
 const RProject = ({ project }: { project: IProject }) => {
+  // const [isHovering, setIsHovering] = useState(false)
   const carousel = project.image.map((image) => (
     // <img src={image.image} key={image.image} width="2000" height="1068" />
-		
+
     <picture key={image.image}>
-      <source srcSet={`${sizes.reduce((acc, [height, width]) => acc + `${image.image}?height=${height}&width=${width}&format=webp ${width}w, `, "")}`} type="image/webp" />
+      <source
+        srcSet={`${sizes.reduce(
+          (acc, [height, width]) =>
+            acc +
+            `${image.image}?height=${height}&width=${width}&format=webp ${width}w, `,
+          ''
+        )}`}
+        type="image/webp"
+      />
       <img
         srcSet={`${image.image}?height=267&width=500&format=webp`}
         width="1000"
@@ -39,38 +54,10 @@ const RProject = ({ project }: { project: IProject }) => {
     }
   }
 
-  const arrowStyles = {
-    position: 'absolute',
-    zIndex: 2,
-    top: 0,
-    width: '2.5em',
-    height: '100%',
-    cursor: 'pointer',
-    outline: 'none',
-    paddingBottom: '2em',
-  } as React.CSSProperties
-
-  const arrowRight = {
-    width: 0,
-    height: 0,
-    borderTop: '1em solid transparent',
-    borderBottom: '1em solid transparent',
-    borderLeft: '1em solid grey',
-    cursor: 'pointer',
-  }
-
-  const arrowLeft = {
-    width: 0,
-    height: 0,
-    borderTop: '1em solid transparent',
-    borderBottom: '1em solid transparent',
-    borderRight: '1em solid grey',
-    cursor: 'pointer',
-    paddingLeft: '1em',
-  }
-
   return (
     // <Collapse isOpened={true}>
+    // onMouseOver={() => setIsHovering(true)}
+    // onMouseOut={() => setIsHovering(false)}
     <>
       <div className="h-[calc(100vh-3*theme('spacing.cust'))]  flex flex-col lg:grid lg:grid-cols-[70%,30%]">
         <div className="lg:h-full pl-padd">
@@ -81,33 +68,33 @@ const RProject = ({ project }: { project: IProject }) => {
             showStatus={false}
             renderArrowNext={(onClickHandler, hasNext, label) =>
               hasNext && (
-                <button
-                  type="button"
+                <input
                   onClick={onClickHandler}
-                  title={label}
-                  style={{ ...arrowStyles, right: 0 }}
-                >
-                  <div style={{ ...arrowRight }}></div>
-                </button>
+                  className="absolute top-2/4 right-0 w-8 lg:w-12 z-10 cursor-finger"
+                  type="image"
+                  alt={label}
+                  src="/arrow-right.png"
+                />
               )
             }
             renderArrowPrev={(onClickHandler, hasPrev, label) =>
               hasPrev && (
-                <button
-                  type="button"
+                <input
                   onClick={onClickHandler}
-                  title={label}
-                  style={{ ...arrowStyles, left: 0 }}
-                >
-                  <div style={{ ...arrowLeft }}></div>
-                </button>
+                  className="absolute top-2/4 left-0n w-8 lg:w-12 z-10 cursor-finger"
+                  type="image"
+                  alt={label}
+                  src="/arrow-left.png"
+                />
               )
             }
           >
             {carousel}
           </Carousel>
         </div>
-        <div className="p-padd lg:py-0 whitespace-pre-wrap">{project.description}</div>
+        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto">
+          {project.description}
+        </p>
       </div>
       {/* </Collapse> */}
     </>

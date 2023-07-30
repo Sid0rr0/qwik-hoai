@@ -35,7 +35,6 @@ html {
 body {
   padding: 0;
   margin: 0;
-  line-height: inherit;
 }
 
 p {
@@ -75,4 +74,12 @@ p {
 
 button:focus {
   outline: 0;
+}
+
+#art-fire {
+  filter: drop-shadow(0 0 10px #4444dd) drop-shadow(0 0 5px white);
+}
+
+#design-fire {
+  filter: drop-shadow(0 0 10px #4444dd) drop-shadow(0 0 5px white);
 }

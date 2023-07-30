@@ -12,18 +12,19 @@ export interface ProjectListProps {
 export const ProjectList = component$<ProjectListProps>(
   ({ projectList, updateList$ }) => {
     const isArtSelectedContext = useContext(SelectedProjectsTypeContext)
-
+    
+    // TODO close other projects when opening a new one
     const handleClick = $(
       (e: QwikMouseEvent<HTMLDivElement, MouseEvent>, project: IProject) => {
         updateList$(project, isArtSelectedContext.value ? 'art' : 'design')
-        const et = e.target as HTMLDivElement
-        et.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const el = e.target as HTMLDivElement
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
         setTimeout(() => {
-          et.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }, 350)
-        // e.target.parentElement.style.opacity === 1
-        //   ? (e.target.parentElement.style.opacity = 0)
-        //   : (e.target.parentElement.style.opacity = 1)
+        // el.parentElement!.style.opacity === '1'
+        //   ? (el.parentElement!.style.opacity = '0')
+        //   : (el.parentElement!.style.opacity = '1')
       }
     )
 
@@ -39,13 +40,13 @@ export const ProjectList = component$<ProjectListProps>(
     }
 
     const onHover = $(
-      (/* e: QwikMouseEvent<HTMLDivElement, MouseEvent>, project: IProject */) => {
-        // const el = e.
+      (e: QwikMouseEvent<HTMLDivElement, MouseEvent>, project: IProject) => {
+        const el = e.target as HTMLDivElement
         // const el = e.target.parentEvent
-        // if (!project.isOpened && !project.hasBeenOpened)
-        //   el.style.opacity === '1'
-        //     ? (el.style.opacity = 0)
-        //     : (el.style.opacity = 1)
+        if (!project.isOpened && !project.hasBeenOpened)
+          el.style.opacity === '1'
+            ? (el.style.opacity = '0')
+            : (el.style.opacity = '1')
       }
     )
 
@@ -53,14 +54,14 @@ export const ProjectList = component$<ProjectListProps>(
       return (
         <div
           key={project.position}
-          class="z-0"
+          class="z-0 opacity-0"
           style={
             project.isOpened || project.hasBeenOpened
               ? { backgroundImage: getColor(project.position, 80), opacity: 1 }
               : undefined
           }
-          onMouseEnter$={() => onHover(/* e, project */)}
-          onMouseLeave$={() => onHover(/* e, project */)}
+          onMouseEnter$={(e) => onHover(e, project)}
+          onMouseLeave$={(e) => onHover(e, project)}
         >
           <div
             onClick$={(e) => handleClick(e, project)}
@@ -69,7 +70,7 @@ export const ProjectList = component$<ProjectListProps>(
                 ? undefined
                 : { backgroundImage: getColor(project.position, 18) }
             }
-            class="h-cust px-padd flex items-center text-3xl"
+            class="h-cust px-padd flex items-center text-3xl cursor-finger"
           >
             {project.name}
           </div>
