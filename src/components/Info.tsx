@@ -24,7 +24,7 @@ export default component$(() => {
   })
 
   const body = (data: Data) => (
-    <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white grid grid-cols-[55%,45%] z-50">
+    <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white grid grid-cols-[55%,45%] z-50 overflow-auto">
       <div></div>
       <p class="px-padd whitespace-pre-wrap overflow-auto">{data.text}</p>
     </div>

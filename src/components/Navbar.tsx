@@ -21,7 +21,7 @@ export default component$(() => {
               L&#234; Th&#x1ECB; Ho&#224;i
             </a>
           </li>
-          <li class="flex gap-16 items-center justify-center">
+          <li class="flex gap-4 lg:gap-16 items-center justify-center">
             {/* drop-shodow in global.css */}
             {/* onMouseOver$={() => isHovering.value = true}
                 onMouseOut$={() => isHovering.value = false} */}

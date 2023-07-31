@@ -54,7 +54,7 @@ export const ProjectList = component$<ProjectListProps>(
       return (
         <div
           key={project.position}
-          class="z-0 opacity-0"
+          class="z-0 lg:opacity-0"
           style={
             project.isOpened || project.hasBeenOpened
               ? { backgroundImage: getColor(project.position, 80), opacity: 1 }
