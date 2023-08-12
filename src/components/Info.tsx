@@ -17,10 +17,9 @@ export default component$(() => {
     const result = (await res.json()) as InfoAPI
 
     if (result.results.length === 0) {
-      return { text: 'Hoai' }
+      return { text: 'Hoai', image: '' }
     }
 
-    console.log(result.results[0].data, 'result.results[0].data')
     return result.results[0].data
   })
 

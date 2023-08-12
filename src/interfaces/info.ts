@@ -1,5 +1,3 @@
-import type { Image } from "./api";
-
 export interface InfoAPI {
   results: Result[];
 }
@@ -24,13 +22,13 @@ export interface Result {
 }
 
 export interface Data {
-  text: string;
-  image: Image;
+  image: string;
+  text:  string;
 }
 
 export interface Meta {
-  kind:           string;
   lastPreviewUrl: string;
+  kind:           string;
 }
 
 export interface Variations {
