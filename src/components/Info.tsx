@@ -20,13 +20,37 @@ export default component$(() => {
       return { text: 'Hoai' }
     }
 
+    console.log(result.results[0].data, 'result.results[0].data')
     return result.results[0].data
   })
 
+  const sizes = [
+    ['178', '333'],
+    ['267', '500'],
+    ['534', '1000'],
+    ['1068', '2000'],
+  ]
+
   const body = (data: Data) => (
-    <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white grid grid-cols-[55%,45%] z-50 overflow-auto">
-      <div></div>
-      <p class="px-padd whitespace-pre-wrap overflow-auto">{data.text}</p>
+    <div class="h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white flex flex-col md:grid md:grid-cols-[55%,45%] z-50 overflow-auto">
+      <picture>
+        <source
+          srcSet={`${sizes.reduce(
+            (acc, [height, width]) =>
+              acc +
+              `${data.image}?height=${height}&width=${width}&format=webp ${width}w, `,
+            ''
+          )}`}
+          type="image/webp"
+        />
+        <img
+          srcSet={`${data.image}?height=534&width=1000&format=webp`}
+          width="1000"
+          height="534"
+        />
+      </picture>
+
+      <p class="px-padd whitespace-pre-wrap overflow-auto pt-4 md:pt-0">{data.text}</p>
     </div>
   )
 

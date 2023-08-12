@@ -10,8 +10,13 @@ export default component$(() => {
 
   return (
     <>
-      <header class="bg-gradient-to-b from-lust w-full">
-        <ul class="grid grid-cols-3 w-full px-2 h-cust text-3xl px-padd">
+      <header
+        class={[
+          isArtSelected.value ? 'from-art' : 'from-design',
+          'w-full bg-gradient-to-b',
+        ]}
+      >
+        <ul class="grid grid-cols-3 w-full px-2 h-[calc(theme('spacing.cust')/1.5)] md:h-cust text-xl md:text-3xl px-padd">
           <li class="flex items-center">
             <a
               class="cursor-finger"
@@ -21,7 +26,7 @@ export default component$(() => {
               L&#234; Th&#x1ECB; Ho&#224;i
             </a>
           </li>
-          <li class="flex gap-4 lg:gap-16 items-center justify-center">
+          <li class="flex gap-8 lg:gap-16 items-center justify-center">
             {/* drop-shodow in global.css */}
             {/* onMouseOver$={() => isHovering.value = true}
                 onMouseOut$={() => isHovering.value = false} */}
@@ -30,8 +35,10 @@ export default component$(() => {
               onClick$={() => {
                 isArtSelected.value = false
               }}
-              class="h-[calc(theme('spacing.cust')/2)] w-[calc(theme('spacing.cust')/2)] cursor-finger"
-              id={!isArtSelected.value ? 'design-fire' : ''}
+              class={[
+                "h-[calc(theme('spacing.cust')/3)] w-[calc(theme('spacing.cust')/3)] md:h-[calc(theme('spacing.cust')/2)] md:w-[calc(theme('spacing.cust')/2)] cursor-finger hover:cust-shadow",
+                !isArtSelected.value ? 'cust-shadow' : '',
+              ]}
             >
               <DesignFire />
             </button>
@@ -39,8 +46,10 @@ export default component$(() => {
               onClick$={() => {
                 isArtSelected.value = true
               }}
-              class="h-[calc(theme('spacing.cust')/2)] w-[calc(theme('spacing.cust')/2)] cursor-finger"
-              id={isArtSelected.value ? 'art-fire' : ''}
+              class={[
+                "h-[calc(theme('spacing.cust')/3)] w-[calc(theme('spacing.cust')/3)] md:h-[calc(theme('spacing.cust')/2)] md:w-[calc(theme('spacing.cust')/2)] cursor-finger hover:cust-shadow",
+                isArtSelected.value ? 'cust-shadow' : '',
+              ]}
             >
               <ArtFire />
             </button>
@@ -48,7 +57,7 @@ export default component$(() => {
           <li class="flex justify-end">
             <button
               onClick$={() => (isInfoOpen.value = !isInfoOpen.value)}
-              class="cursor-finger"
+              class="cursor-finger "
             >
               info
             </button>

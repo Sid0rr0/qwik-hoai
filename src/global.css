@@ -6,6 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .cust-shadow {
+    filter: drop-shadow(0 0 10px #4444dd) drop-shadow(0 0 5px white);
+  }
+}
+
 /**
  * WHAT IS THIS FILE?
  *

@@ -8,10 +8,11 @@ module.exports = {
         padd: '1rem',
       },
       colors: {
-        lust: '#E72024',
+        art: '#FF0000',
+        design: '#EF0E80',
       },
       cursor: {
-        'finger': 'url(/cursor.png) 0 17, url(/cursor-left.png) 82 17, pointer',
+        'finger': 'url(/cursor-left-s.png) 0 8, url(/cursor-s.png) 41 8, pointer',
       }
     },
   },

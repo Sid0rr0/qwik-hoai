@@ -25,9 +25,8 @@ export const useServerTimeLoader = routeLoader$(() => {
 export const SelectedProjectsTypeContext = createContextId<Signal<boolean>>(
   'SelectedProjectsTypeContext'
 )
-export const InfoOpenedContext = createContextId<Signal<boolean>>(
-  'InfoOpenedContext'
-)
+export const InfoOpenedContext =
+  createContextId<Signal<boolean>>('InfoOpenedContext')
 
 export default component$(() => {
   const isArtSelected = useSignal(false)
@@ -40,7 +39,12 @@ export default component$(() => {
       <main>
         <Slot />
       </main>
-      <footer class="bg-gradient-to-t from-lust absolute bottom-0 left-0 h-cust w-screen" />
+      <footer
+        class={[
+          isArtSelected.value ? 'from-art' : 'from-design',
+          'bg-gradient-to-t from-lust absolute bottom-0 left-0 h-[calc(theme("spacing.cust")/1.5)] md:h-cust w-screen',
+        ]}
+      />
     </>
   )
 })

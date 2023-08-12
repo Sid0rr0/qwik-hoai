@@ -25,7 +25,7 @@ export interface Result {
 
 export interface Data {
   text: string;
-  image?: Image[];
+  image: Image;
 }
 
 export interface Meta {

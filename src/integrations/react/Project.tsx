@@ -35,7 +35,7 @@ const RProject = ({ project }: { project: IProject }) => {
         type="image/webp"
       />
       <img
-        srcSet={`${image.image}?height=267&width=500&format=webp`}
+        srcSet={`${image.image}?height=534&width=1000&format=webp`}
         width="1000"
         height="534"
       />
@@ -59,8 +59,8 @@ const RProject = ({ project }: { project: IProject }) => {
     // onMouseOver={() => setIsHovering(true)}
     // onMouseOut={() => setIsHovering(false)}
     <>
-      <div className="h-[calc(100vh-3*theme('spacing.cust'))]  flex flex-col lg:grid lg:grid-cols-[70%,30%]">
-        <div className="lg:h-full pl-padd">
+      <div className="h-[calc(100vh-3*theme('spacing.cust')/1.5)] md:h-[calc(100vh-3*theme('spacing.cust'))] flex flex-col lg:grid lg:grid-cols-[70%,30%]">
+        <div className="lg:h-full p-padd md:pl-padd  md:pr-0">
           <Carousel
             dynamicHeight={false}
             showThumbs={false}
@@ -92,7 +92,7 @@ const RProject = ({ project }: { project: IProject }) => {
             {carousel}
           </Carousel>
         </div>
-        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto">
+        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto text-base md:text-2xl">
           {project.description}
         </p>
       </div>
