@@ -34,6 +34,7 @@ export default component$(() => {
             <button
               onClick$={() => {
                 isArtSelected.value = false
+                isInfoOpen.value = false
               }}
               class={[
                 "h-[calc(theme('spacing.cust')/3)] w-[calc(theme('spacing.cust')/3)] md:h-[calc(theme('spacing.cust')/2)] md:w-[calc(theme('spacing.cust')/2)] cursor-finger hover:cust-shadow",
@@ -45,6 +46,7 @@ export default component$(() => {
             <button
               onClick$={() => {
                 isArtSelected.value = true
+                isInfoOpen.value = false
               }}
               class={[
                 "h-[calc(theme('spacing.cust')/3)] w-[calc(theme('spacing.cust')/3)] md:h-[calc(theme('spacing.cust')/2)] md:w-[calc(theme('spacing.cust')/2)] cursor-finger hover:cust-shadow",

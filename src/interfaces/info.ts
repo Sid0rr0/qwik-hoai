@@ -23,7 +23,14 @@ export interface Result {
 
 export interface Data {
   image: string;
+  links: Link[];
   text:  string;
+}
+
+export interface Link {
+  link: string;
+  text: string;
+  linkText: string;
 }
 
 export interface Meta {

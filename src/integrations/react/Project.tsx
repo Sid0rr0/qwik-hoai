@@ -92,7 +92,7 @@ const RProject = ({ project }: { project: IProject }) => {
             {carousel}
           </Carousel>
         </div>
-        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto text-base md:text-2xl">
+        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto text-base md:text-xl">
           {project.description}
         </p>
       </div>
