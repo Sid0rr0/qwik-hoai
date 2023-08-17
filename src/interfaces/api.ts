@@ -27,10 +27,17 @@ export interface Data {
   description:  string;
   type?:        string;
   videoLink?:   string;
+  links?: Link[];
 }
 
 export interface Image {
   image: string;
+}
+
+export interface Link {
+  link: string;
+  text: string;
+  linkText: string;
 }
 
 export interface Meta {

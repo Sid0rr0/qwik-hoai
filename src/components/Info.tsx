@@ -2,12 +2,10 @@ import { Resource, component$, useResource$ } from '@builder.io/qwik'
 import type { Data, InfoAPI } from '~/interfaces/info'
 
 export default component$(() => {
-  console.log(import.meta.env.API_KEY, 'import.meta.env.API_KEY')
   const infoData = useResource$<Data>(async () => {
     // it will run first on mount (server), then re-run whenever prNumber changes (client)
     // this means this code will run on the server and the browser
     // track(() => prNumber.value);
-    // console.log(import.meta.env.API_KEY, 'import.meta.env.API_KEY')
 
     const res = await fetch(
       `https://cdn.builder.io/api/v3/content/info?apiKey=${
@@ -51,7 +49,7 @@ export default component$(() => {
       </picture>
 
       <div class="md:max-h-[calc(100vh-2*theme('spacing.cust'))] overflow-y-auto">
-        <p class="px-padd whitespace-pre-wrap overflow-auto pt-4 md:pt-0">
+        <p class="px-padd whitespace-pre-wrap overflow-auto pt-4 md:pt-0 text-base md:text-lg">
           {data.text}
         </p>
         <ul class="px-padd pt-padd text-base md:text-xl">

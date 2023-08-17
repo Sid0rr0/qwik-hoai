@@ -60,7 +60,7 @@ const RProject = ({ project }: { project: IProject }) => {
     // onMouseOut={() => setIsHovering(false)}
     <>
       <div className="h-[calc(100vh-3*theme('spacing.cust')/1.5)] md:h-[calc(100vh-3*theme('spacing.cust'))] flex flex-col lg:grid lg:grid-cols-[70%,30%]">
-        <div className="lg:h-full p-padd md:pl-padd  md:pr-0">
+        <div className="lg:h-full p-padd md:pl-padd md:pt-0 md:pr-0">
           <Carousel
             dynamicHeight={false}
             showThumbs={false}
@@ -70,7 +70,7 @@ const RProject = ({ project }: { project: IProject }) => {
               hasNext && (
                 <input
                   onClick={onClickHandler}
-                  className="absolute top-2/4 right-0 w-8 lg:w-12 z-10 cursor-finger"
+                  className="absolute top-2/4 right-0 w-6 lg:w-8 z-10 mr-2 cursor-finger drop-shadow-md"
                   type="image"
                   alt={label}
                   src="/arrow-right.png"
@@ -81,7 +81,7 @@ const RProject = ({ project }: { project: IProject }) => {
               hasPrev && (
                 <input
                   onClick={onClickHandler}
-                  className="absolute top-2/4 left-0n w-8 lg:w-12 z-10 cursor-finger"
+                  className="absolute top-2/4 left-0n w-6 lg:w-8 z-10 ml-2 cursor-finger"
                   type="image"
                   alt={label}
                   src="/arrow-left.png"
@@ -92,9 +92,21 @@ const RProject = ({ project }: { project: IProject }) => {
             {carousel}
           </Carousel>
         </div>
-        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto text-base md:text-xl">
+        <div>
+        <p className="p-padd lg:py-0 whitespace-pre-wrap overflow-auto text-base md:text-lg">
           {project.description}
         </p>
+        <ul className="px-padd pt-padd text-base md:text-xl">
+          {project.links && project.links.map((link) => (
+            <li key={link.link}>
+              {link.text}:{' '}
+              <a href={link.link} className="text-design">
+                {link.linkText ? link.linkText : link.link}
+              </a>
+            </li>
+          ))}
+        </ul>
+        </div>
       </div>
       {/* </Collapse> */}
     </>
