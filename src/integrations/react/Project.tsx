@@ -92,20 +92,21 @@ const RProject = ({ project }: { project: IProject }) => {
             {carousel}
           </Carousel>
         </div>
-        <div className="h-3/6">
-        <p className="p-padd pb-0 lg:py-0 whitespace-pre-wrap overflow-y-scroll text-base md:text-lg">
-          {project.description}
-        </p>
-        <ul className="px-padd pt-padd text-base md:text-xl">
-          {project.links && project.links.map((link) => (
-            <li key={link.link}>
-              {link.text}:{' '}
-              <a href={link.link} className="text-design">
-                {link.linkText ? link.linkText : link.link}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="h-3/6 overflow-y-scroll">
+          <p className="p-padd pb-0 lg:py-0 whitespace-pre-wrap text-base md:text-lg">
+            {project.description}
+          </p>
+          <ul className="px-padd pt-padd text-base md:text-xl">
+            {project.links &&
+              project.links.map((link) => (
+                <li key={link.link}>
+                  {link.text}:{' '}
+                  <a href={link.link} className="text-design">
+                    {link.linkText ? link.linkText : link.link}
+                  </a>
+                </li>
+              ))}
+          </ul>
         </div>
       </div>
       {/* </Collapse> */}
