@@ -16,7 +16,7 @@ export default component$(() => {
           'w-full bg-gradient-to-b',
         ]}
       >
-        <ul class="grid grid-cols-3 w-full px-2 h-[calc(theme('spacing.cust')/1.5)] md:h-cust text-xl md:text-3xl px-padd">
+        <ul class="flex items-center justify-between w-full px-2 h-[calc(theme('spacing.cust')/1.5)] md:h-cust text-xl md:text-3xl px-padd">
           <li class="flex items-center">
             <a
               class="cursor-finger"
@@ -56,14 +56,26 @@ export default component$(() => {
               <ArtFire />
             </button>
           </li>
-          <li class="flex justify-end">
-            <button
-              onClick$={() => (isInfoOpen.value = !isInfoOpen.value)}
-              class="cursor-finger "
-            >
-              info
-            </button>
-          </li>
+          <div class="flex gap-4">
+            <li class="flex justify-end">
+              <a
+                class="cursor-finger"
+                href={import.meta.env.PUBLIC_PORTFOLIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                portfolio
+              </a>
+            </li>
+            <li class="flex justify-end">
+              <button
+                onClick$={() => (isInfoOpen.value = !isInfoOpen.value)}
+                class="cursor-finger "
+                >
+                info
+              </button>
+            </li>
+          </div>
         </ul>
       </header>
 
