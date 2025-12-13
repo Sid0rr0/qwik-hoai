@@ -32,7 +32,7 @@ export default component$(() => {
     <div class="h-[calc(100vh-2*theme('spacing.cust')/1.5)] md:h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white flex flex-col md:grid md:grid-cols-[55%,45%] z-50 overflow-auto">
       <picture>
         <source
-          srcSet={`${sizes.reduce(
+          srcset={`${sizes.reduce(
             (acc, [width, height]) =>
               acc +
               `${data.image}?height=${height}&width=${width}&format=webp ${width}w, `,
@@ -41,7 +41,7 @@ export default component$(() => {
           type="image/webp"
         />
         <img
-          srcSet={`${data.image}?height=534&width=1000&format=webp`}
+          srcset={`${data.image}?height=534&width=1000&format=webp`}
           width="825"
           height="720"
           class="max-h-[30dvh] md:max-h-[calc(100vh-2*theme('spacing.cust'))] object-contain"
