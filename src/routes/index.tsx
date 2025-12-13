@@ -29,7 +29,7 @@ export const useProjectData = routeLoader$(async (requestEvent) => {
 
   const res = await fetch(
     `https://cdn.builder.io/api/v3/content/project?apiKey=${requestEvent.env.get(
-      'API_KEY'
+      'PUBLIC_API_KEY'
     )}`
   )
   const product = (await res.json()) as BuilderAPI
