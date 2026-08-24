@@ -1,9 +1,9 @@
-import type { Signal } from '@builder.io/qwik'
 import { component$, Slot, useSignal } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import type { RequestHandler } from '@builder.io/qwik-city'
-import { useContextProvider, createContextId } from '@builder.io/qwik'
+import { useContextProvider } from '@builder.io/qwik'
 import Navbar from '~/components/Navbar'
+import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/contexts'
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -21,12 +21,6 @@ export const useServerTimeLoader = routeLoader$(() => {
     date: new Date().toISOString(),
   }
 })
-
-export const SelectedProjectsTypeContext = createContextId<Signal<boolean>>(
-  'SelectedProjectsTypeContext'
-)
-export const InfoOpenedContext =
-  createContextId<Signal<boolean>>('InfoOpenedContext')
 
 export default component$(() => {
   const isArtSelected = useSignal(false)

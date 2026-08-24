@@ -26,8 +26,14 @@ function makeResult(overrides: Partial<Result> & { id: string }): Result {
 describe('groupProjectsByCategory', () => {
   test('sorts results into art and design by data.type', () => {
     const results = [
-      makeResult({ id: 'a', data: { image: [], name: 'A', description: '', type: 'art' } }),
-      makeResult({ id: 'd', data: { image: [], name: 'D', description: '', type: 'design' } }),
+      makeResult({
+        id: 'a',
+        data: { image: [], name: 'A', description: '', type: 'art' },
+      }),
+      makeResult({
+        id: 'd',
+        data: { image: [], name: 'D', description: '', type: 'design' },
+      }),
     ]
 
     const grouped = groupProjectsByCategory(results)
@@ -37,7 +43,9 @@ describe('groupProjectsByCategory', () => {
   })
 
   test('falls back to design when type is missing', () => {
-    const results = [makeResult({ id: 'x', data: { image: [], name: 'X', description: '' } })]
+    const results = [
+      makeResult({ id: 'x', data: { image: [], name: 'X', description: '' } }),
+    ]
 
     const grouped = groupProjectsByCategory(results)
 
@@ -60,8 +68,14 @@ describe('groupProjectsByCategory', () => {
 
   test('assigns position as the index in the source results array', () => {
     const results = [
-      makeResult({ id: 'a', data: { image: [], name: 'A', description: '', type: 'art' } }),
-      makeResult({ id: 'b', data: { image: [], name: 'B', description: '', type: 'design' } }),
+      makeResult({
+        id: 'a',
+        data: { image: [], name: 'A', description: '', type: 'art' },
+      }),
+      makeResult({
+        id: 'b',
+        data: { image: [], name: 'B', description: '', type: 'design' },
+      }),
     ]
 
     const grouped = groupProjectsByCategory(results)
@@ -72,7 +86,10 @@ describe('groupProjectsByCategory', () => {
 
   test('initializes isOpened and hasBeenOpened to false', () => {
     const results = [
-      makeResult({ id: 'a', data: { image: [], name: 'A', description: '', type: 'art' } }),
+      makeResult({
+        id: 'a',
+        data: { image: [], name: 'A', description: '', type: 'art' },
+      }),
     ]
 
     const [project] = groupProjectsByCategory(results).art

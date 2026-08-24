@@ -13,9 +13,9 @@ describe('parseYouTubeVideoId', () => {
   })
 
   test('extracts the id from an embed URL', () => {
-    expect(
-      parseYouTubeVideoId('https://www.youtube.com/embed/abc123')
-    ).toBe('abc123')
+    expect(parseYouTubeVideoId('https://www.youtube.com/embed/abc123')).toBe(
+      'abc123'
+    )
   })
 
   test('extracts the id from a URL without protocol or www', () => {

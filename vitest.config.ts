@@ -1,11 +1,13 @@
 import { defineConfig } from 'vitest/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import { qwikVite } from '@builder.io/qwik/optimizer'
+import { qwikReact } from '@builder.io/qwik-react/vite'
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  plugins: [qwikVite(), qwikReact(), tsconfigPaths()],
   test: {
     environment: 'node',
-    include: ['src/**/__tests__/**/*.test.ts'],
+    include: ['src/**/__tests__/**/*.test.{ts,tsx}'],
     coverage: {
       provider: 'v8',
       include: [

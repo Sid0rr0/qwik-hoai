@@ -4,7 +4,7 @@ import type { BuilderAPI, Data } from '~/interfaces/api'
 
 import { routeLoader$ } from '@builder.io/qwik-city'
 import { ProjectList } from '~/components/ProjectList'
-import { InfoOpenedContext, SelectedProjectsTypeContext } from './layout'
+import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/contexts'
 import Info from '~/components/Info'
 import { groupProjectsByCategory } from './index.helpers'
 

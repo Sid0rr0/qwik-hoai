@@ -1,5 +1,5 @@
 import { component$, useContext } from '@builder.io/qwik'
-import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/routes/layout'
+import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/contexts'
 import DesignFire from '~/media/design_81x100.png?jsx'
 import ArtFire from '~/media/art_81x100.png?jsx'
 

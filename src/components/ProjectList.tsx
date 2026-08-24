@@ -2,7 +2,7 @@ import type { IProject, ProjectCategory } from '~/routes/index'
 import type { QwikMouseEvent } from '@builder.io/qwik'
 import { component$, $, useContext, type PropFunction } from '@builder.io/qwik'
 import { Project } from '~/integrations/react/Project'
-import { SelectedProjectsTypeContext } from '~/routes/layout'
+import { SelectedProjectsTypeContext } from '~/contexts'
 import { getColor } from './ProjectList.helpers'
 
 export interface ProjectListProps {

@@ -20,7 +20,7 @@ const sizes = [
   ['1068', '2000'],
 ]
 
-const RProject = ({ project }: { project: IProject }) => {
+export const RProject = ({ project }: ProjectProps) => {
   // const [isHovering, setIsHovering] = useState(false)
 
   const carousel = Array.isArray(project.image)
