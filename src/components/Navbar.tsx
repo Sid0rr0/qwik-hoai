@@ -63,7 +63,7 @@ export default component$(() => {
                 href={import.meta.env.PUBLIC_PORTFOLIO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                >
+              >
                 portfolio
               </a>
             </li>
@@ -71,7 +71,7 @@ export default component$(() => {
               <button
                 onClick$={() => (isInfoOpen.value = !isInfoOpen.value)}
                 class="cursor-finger "
-                >
+              >
                 info
               </button>
             </li>

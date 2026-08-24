@@ -1,51 +1,50 @@
 export interface BuilderAPI {
-  results: Result[];
+  results: Result[]
 }
 
 export interface Result {
-  lastUpdatedBy:  string;
-  folders:        any[];
-  data:           Data;
-  modelId:        string;
-  query:          any[];
-  published:      string;
-  firstPublished: number;
-  testRatio:      number;
-  lastUpdated:    number;
-  createdDate:    number;
-  createdBy:      string;
-  meta:           Meta;
-  variations:     Variations;
-  name:           string;
-  id:             string;
-  rev:            string;
+  lastUpdatedBy: string
+  folders: any[]
+  data: Data
+  modelId: string
+  query: any[]
+  published: string
+  firstPublished: number
+  testRatio: number
+  lastUpdated: number
+  createdDate: number
+  createdBy: string
+  meta: Meta
+  variations: Variations
+  name: string
+  id: string
+  rev: string
 }
 
 export interface Data {
-  image:        Image[];
-  name:         string;
-  description:  string;
-  type?:        string;
-  videoLink?:   string;
-  links?: Link[];
+  image: Image[]
+  name: string
+  description: string
+  type?: string
+  videoLink?: string
+  links?: Link[]
 }
 
 export interface Image {
-  image: string;
+  image: string
 }
 
 export interface Link {
-  link: string;
-  text: string;
-  linkText: string;
+  link: string
+  text: string
+  linkText: string
 }
 
 export interface Meta {
-  lastPreviewUrl:     string;
-  kind:               string;
-  originalContentId?: string;
-  winningTest?:       null;
+  lastPreviewUrl: string
+  kind: string
+  originalContentId?: string
+  winningTest?: null
 }
 
-export interface Variations {
-}
+export type Variations = object

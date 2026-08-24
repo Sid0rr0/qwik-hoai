@@ -1,0 +1,7 @@
+allowBuilds:
+  deasync: true
+  esbuild: true
+  sharp: true
+  vercel: true
+overrides:
+  undici: 8.10.0

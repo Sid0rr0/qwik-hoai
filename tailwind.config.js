@@ -12,8 +12,8 @@ module.exports = {
         design: '#EF0E80',
       },
       cursor: {
-        'finger': 'url(/cursor-left-s.png) 0 8, url(/cursor-s.png) 41 8, pointer',
-      }
+        finger: 'url(/cursor-left-s.png) 0 8, url(/cursor-s.png) 41 8, pointer',
+      },
     },
   },
   plugins: [],

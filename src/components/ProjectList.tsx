@@ -12,7 +12,7 @@ export interface ProjectListProps {
 export const ProjectList = component$<ProjectListProps>(
   ({ projectList, updateList$ }) => {
     const isArtSelectedContext = useContext(SelectedProjectsTypeContext)
-    
+
     // TODO close other projects when opening a new one
     const handleClick = $(
       (e: QwikMouseEvent<HTMLDivElement, MouseEvent>, project: IProject) => {
@@ -43,10 +43,9 @@ export const ProjectList = component$<ProjectListProps>(
       (e: QwikMouseEvent<HTMLDivElement, MouseEvent>, project: IProject) => {
         const el = e.target as HTMLDivElement
         // const el = e.target.parentEvent
-        if (!project.isOpened && !project.hasBeenOpened)
-          el.style.opacity === '1'
-            ? (el.style.opacity = '0')
-            : (el.style.opacity = '1')
+        if (!project.isOpened && !project.hasBeenOpened) {
+          el.style.opacity = el.style.opacity === '1' ? '0' : '1'
+        }
       }
     )
 

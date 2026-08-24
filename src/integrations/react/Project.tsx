@@ -43,18 +43,18 @@ const RProject = ({ project }: { project: IProject }) => {
             />
           </picture>
         ))
-    : [];
+    : []
 
-  const isClient = typeof window !== 'undefined';
+  const isClient = typeof window !== 'undefined'
 
   if (isClient && project.videoLink) {
     const pattern =
-      /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:embed\/|v\/|watch\?v=)|youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^\s&?/]+)/;
-    const match = project.videoLink.match(pattern);
+      /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:embed\/|v\/|watch\?v=)|youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^\s&?/]+)/
+    const match = project.videoLink.match(pattern)
     if (match && match[1]) {
       carousel.push(
         <YouTube key={match[1]} videoId={match[1]} className="h-full" />
-      );
+      )
     }
   }
 
@@ -95,9 +95,7 @@ const RProject = ({ project }: { project: IProject }) => {
                 {carousel}
               </Carousel>
             ) : (
-              <div>
-                {carousel[0]}
-              </div>
+              <div>{carousel[0]}</div>
             )
           ) : null}
         </div>
@@ -119,7 +117,7 @@ const RProject = ({ project }: { project: IProject }) => {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export const Project = qwikify$(RProject, { eagerness: 'load' })
