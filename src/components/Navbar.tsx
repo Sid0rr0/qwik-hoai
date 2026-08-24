@@ -16,7 +16,7 @@ export default component$(() => {
           'w-full bg-gradient-to-b',
         ]}
       >
-        <ul class="flex items-center justify-between w-full px-2 h-[calc(theme('spacing.cust')/1.5)] md:h-cust text-xl md:text-3xl px-padd">
+        <ul class="flex items-center justify-between w-full px-2 h-[calc((var(--spacing-cust))/1.5)] md:h-cust text-xl md:text-3xl px-padd">
           <li class="flex items-center">
             <a
               class="cursor-finger"
@@ -37,7 +37,7 @@ export default component$(() => {
                 isInfoOpen.value = false
               }}
               class={[
-                "h-[calc(theme('spacing.cust')/3)] w-[calc(theme('spacing.cust')/3)] md:h-[calc(theme('spacing.cust')/2)] md:w-[calc(theme('spacing.cust')/2)] cursor-finger hover:cust-shadow",
+                "h-[calc((var(--spacing-cust))/3)] w-[calc((var(--spacing-cust))/3)] md:h-[calc((var(--spacing-cust))/2)] md:w-[calc((var(--spacing-cust))/2)] cursor-finger hover:cust-shadow",
                 !isArtSelected.value ? 'cust-shadow' : '',
               ]}
             >
@@ -49,7 +49,7 @@ export default component$(() => {
                 isInfoOpen.value = false
               }}
               class={[
-                "h-[calc(theme('spacing.cust')/3)] w-[calc(theme('spacing.cust')/3)] md:h-[calc(theme('spacing.cust')/2)] md:w-[calc(theme('spacing.cust')/2)] cursor-finger hover:cust-shadow",
+                "h-[calc((var(--spacing-cust))/3)] w-[calc((var(--spacing-cust))/3)] md:h-[calc((var(--spacing-cust))/2)] md:w-[calc((var(--spacing-cust))/2)] cursor-finger hover:cust-shadow",
                 isArtSelected.value ? 'cust-shadow' : '',
               ]}
             >

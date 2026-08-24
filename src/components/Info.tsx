@@ -29,7 +29,7 @@ export default component$(() => {
   ]
 
   const body = (data: Data) => (
-    <div class="h-[calc(100vh-2*theme('spacing.cust')/1.5)] md:h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white flex flex-col md:grid md:grid-cols-[55%_45%] z-50 overflow-auto">
+    <div class="h-[calc(100vh-2*(var(--spacing-cust))/1.5)] md:h-[calc(100vh-2*(var(--spacing-cust)))] absolute top-[(var(--spacing-cust))] w-full bg-white flex flex-col md:grid md:grid-cols-[55%_45%] z-50 overflow-auto">
       <picture>
         <source
           srcset={`${sizes.reduce(
@@ -44,11 +44,11 @@ export default component$(() => {
           srcset={`${data.image}?height=534&width=1000&format=webp`}
           width="825"
           height="720"
-          class="max-h-[30dvh] md:max-h-[calc(100vh-2*theme('spacing.cust'))] object-contain"
+          class="max-h-[30dvh] md:max-h-[calc(100vh-2*(var(--spacing-cust)))] object-contain"
         />
       </picture>
 
-      <div class="md:max-h-[calc(100vh-2*theme('spacing.cust'))] overflow-y-auto">
+      <div class="md:max-h-[calc(100vh-2*(var(--spacing-cust)))] overflow-y-auto">
         <p class="px-padd whitespace-pre-wrap overflow-auto pt-4 md:pt-0 text-base md:text-lg">
           {data.text}
         </p>

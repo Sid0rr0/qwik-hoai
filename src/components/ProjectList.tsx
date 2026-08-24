@@ -59,7 +59,7 @@ export const ProjectList = component$<ProjectListProps>(
                 ? undefined
                 : { backgroundImage: getColor(project.position, 18) }
             }
-            class="h-[calc(theme('spacing.cust')/1.5)] md:h-cust px-padd flex items-center leading-6 md:leading-6 text-xl md:text-3xl cursor-finger"
+            class="h-[calc((var(--spacing-cust))/1.5)] md:h-cust px-padd flex items-center leading-6 md:leading-6 text-xl md:text-3xl cursor-finger"
           >
             {project.name}
           </div>
@@ -76,7 +76,7 @@ export const ProjectList = component$<ProjectListProps>(
     })
 
     return (
-      <div class="h-[calc(100vh-(2*theme('spacing.cust'))/1.5)] md:h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full overflow-auto">
+      <div class="h-[calc(100vh-(2*(var(--spacing-cust)))/1.5)] md:h-[calc(100vh-2*(var(--spacing-cust)))] absolute top-[(var(--spacing-cust))] w-full overflow-auto">
         {p}
       </div>
     )

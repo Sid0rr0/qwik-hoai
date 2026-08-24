@@ -4,6 +4,8 @@
  */
 @import 'tailwindcss';
 
+@custom-variant hover (&:hover);
+
 @theme {
   --spacing-cust: 4.688rem;
   --spacing-padd: 1rem;

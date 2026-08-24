@@ -59,7 +59,7 @@ export const RProject = ({ project }: ProjectProps) => {
 
   return (
     <>
-      <div className="h-[calc(100vh-3*theme('spacing.cust')/1.5)] md:h-[calc(100vh-3*theme('spacing.cust'))] flex flex-col lg:grid lg:grid-cols-[70%_30%]">
+      <div className="h-[calc(100vh-3*(var(--spacing-cust))/1.5)] md:h-[calc(100vh-3*(var(--spacing-cust)))] flex flex-col lg:grid lg:grid-cols-[70%_30%]">
         <div className="lg:h-full p-padd md:pl-padd md:pt-0 md:pr-0">
           {carousel.length > 0 ? (
             isClient ? (

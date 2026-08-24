@@ -36,7 +36,7 @@ export default component$(() => {
       <footer
         class={[
           isArtSelected.value ? 'from-art' : 'from-design',
-          'bg-gradient-to-t from-lust absolute bottom-0 left-0 h-[calc(theme("spacing.cust")/1.5)] md:h-cust w-screen',
+          'bg-gradient-to-t from-lust absolute bottom-0 left-0 h-[calc((var(--spacing-cust))/1.5)] md:h-cust w-screen',
         ]}
       />
     </>
