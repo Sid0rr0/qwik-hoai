@@ -45,3 +45,8 @@ lerna-debug.log*
 
 # Vercel
 .vercel
+
+# Agent skills
+.agents
+.claude
+skills-lock.json
