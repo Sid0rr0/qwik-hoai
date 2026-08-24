@@ -29,7 +29,7 @@ export default component$(() => {
   ]
 
   const body = (data: Data) => (
-    <div class="h-[calc(100vh-2*theme('spacing.cust')/1.5)] md:h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white flex flex-col md:grid md:grid-cols-[55%,45%] z-50 overflow-auto">
+    <div class="h-[calc(100vh-2*theme('spacing.cust')/1.5)] md:h-[calc(100vh-2*theme('spacing.cust'))] absolute top-[theme('spacing.cust'))] w-full bg-white flex flex-col md:grid md:grid-cols-[55%_45%] z-50 overflow-auto">
       <picture>
         <source
           srcset={`${sizes.reduce(
