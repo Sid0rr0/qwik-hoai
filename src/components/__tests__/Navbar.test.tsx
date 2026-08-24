@@ -1,19 +1,9 @@
 import { component$, useContextProvider, useSignal } from '@builder.io/qwik'
 import { createDOM } from '@builder.io/qwik/testing'
-import { describe, expect, test, vi } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/contexts'
 import { hasClass } from '~/testing/hasClass'
 import Navbar from '../Navbar'
-
-// The real ?jsx image imports go through Qwik's image-optimizer transform,
-// which produces markup the lightweight test DOM can't create. Stub them
-// out; Navbar's own click/state behavior doesn't depend on their content.
-vi.mock('~/media/design_81x100.png?jsx', () => ({
-  default: () => <div data-testid="design-fire" />,
-}))
-vi.mock('~/media/art_81x100.png?jsx', () => ({
-  default: () => <div data-testid="art-fire" />,
-}))
 
 const Host = component$(() => {
   const isArtSelected = useSignal(false)

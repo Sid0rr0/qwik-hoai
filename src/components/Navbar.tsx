@@ -1,7 +1,5 @@
 import { component$, useContext } from '@builder.io/qwik'
 import { InfoOpenedContext, SelectedProjectsTypeContext } from '~/contexts'
-import DesignFire from '~/media/design_81x100.png?jsx'
-import ArtFire from '~/media/art_81x100.png?jsx'
 
 export default component$(() => {
   const isArtSelected = useContext(SelectedProjectsTypeContext)
@@ -41,7 +39,12 @@ export default component$(() => {
                 !isArtSelected.value ? 'cust-shadow' : '',
               ]}
             >
-              <DesignFire />
+              <img
+                src="/design_81x100.png"
+                width={81}
+                height={100}
+                alt="Design"
+              />
             </button>
             <button
               onClick$={() => {
@@ -53,7 +56,7 @@ export default component$(() => {
                 isArtSelected.value ? 'cust-shadow' : '',
               ]}
             >
-              <ArtFire />
+              <img src="/art_81x100.png" width={81} height={100} alt="Art" />
             </button>
           </li>
           <div class="flex gap-4">
