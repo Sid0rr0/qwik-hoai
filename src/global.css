@@ -2,14 +2,24 @@
  * Tailwind CSS imports
  * View the full documentation at https://tailwindcss.com
  */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer components {
-  .cust-shadow {
-    filter: drop-shadow(0 0 10px #4444dd) drop-shadow(0 0 5px white);
-  }
+@theme {
+  --spacing-cust: 4.688rem;
+  --spacing-padd: 1rem;
+  --color-art: #ff0000;
+  --color-design: #ef0e80;
+}
+
+@utility cust-shadow {
+  filter: drop-shadow(0 0 10px #4444dd) drop-shadow(0 0 5px white);
+}
+
+@utility cursor-finger {
+  cursor:
+    url(/cursor-left-s.png) 0 8,
+    url(/cursor-s.png) 41 8,
+    pointer;
 }
 
 /**
