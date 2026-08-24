@@ -37,7 +37,7 @@ export default component$(() => {
                 isInfoOpen.value = false
               }}
               class={[
-                "h-[calc((var(--spacing-cust))/3)] w-[calc((var(--spacing-cust))/3)] md:h-[calc((var(--spacing-cust))/2)] md:w-[calc((var(--spacing-cust))/2)] cursor-finger hover:cust-shadow",
+                'h-[calc((var(--spacing-cust))/3)] w-[calc((var(--spacing-cust))/3)] md:h-[calc((var(--spacing-cust))/2)] md:w-[calc((var(--spacing-cust))/2)] cursor-finger hover:cust-shadow',
                 !isArtSelected.value ? 'cust-shadow' : '',
               ]}
             >
@@ -49,7 +49,7 @@ export default component$(() => {
                 isInfoOpen.value = false
               }}
               class={[
-                "h-[calc((var(--spacing-cust))/3)] w-[calc((var(--spacing-cust))/3)] md:h-[calc((var(--spacing-cust))/2)] md:w-[calc((var(--spacing-cust))/2)] cursor-finger hover:cust-shadow",
+                'h-[calc((var(--spacing-cust))/3)] w-[calc((var(--spacing-cust))/3)] md:h-[calc((var(--spacing-cust))/2)] md:w-[calc((var(--spacing-cust))/2)] cursor-finger hover:cust-shadow',
                 isArtSelected.value ? 'cust-shadow' : '',
               ]}
             >
