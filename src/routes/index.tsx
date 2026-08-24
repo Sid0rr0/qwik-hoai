@@ -6,6 +6,9 @@ import { routeLoader$ } from '@builder.io/qwik-city'
 import { ProjectList } from '~/components/ProjectList'
 import { InfoOpenedContext, SelectedProjectsTypeContext } from './layout'
 import Info from '~/components/Info'
+import { groupProjectsByCategory } from './index.helpers'
+
+export type ProjectCategory = 'art' | 'design'
 
 export interface IProject extends Data {
   id: string
@@ -34,27 +37,7 @@ export const useProjectData = routeLoader$(async (requestEvent) => {
   )
   const product = (await res.json()) as BuilderAPI
 
-  if (product.results.length === 0) {
-    return { art: [], design: [] }
-  }
-
-  const data: IProjectList = {
-    art: [],
-    design: [],
-  }
-
-  product.results.forEach((result, i) => {
-    const type = result.data.type ? result.data.type : 'design'
-    data[type as keyof IProjectList].push({
-      id: result.id,
-      position: i,
-      hasBeenOpened: false,
-      isOpened: false,
-      ...result.data,
-    })
-  })
-
-  return data as IProjectList
+  return groupProjectsByCategory(product.results)
 })
 
 export default component$(() => {
@@ -65,7 +48,7 @@ export default component$(() => {
   const designList = useStore(signal.value.design)
   const artList = useStore(signal.value.art)
 
-  const updateProjectList$ = $((project: IProject, type: string) => {
+  const updateProjectList$ = $((project: IProject, type: ProjectCategory) => {
     if (type === 'art') {
       const index = artList.findIndex((p) => p.id === project.id)
       artList[index].isOpened = !artList[index].isOpened

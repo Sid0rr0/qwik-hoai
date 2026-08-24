@@ -1,12 +1,13 @@
-import type { IProject } from '~/routes/index'
+import type { IProject, ProjectCategory } from '~/routes/index'
 import type { QwikMouseEvent } from '@builder.io/qwik'
 import { component$, $, useContext, type PropFunction } from '@builder.io/qwik'
 import { Project } from '~/integrations/react/Project'
 import { SelectedProjectsTypeContext } from '~/routes/layout'
+import { getColor } from './ProjectList.helpers'
 
 export interface ProjectListProps {
   projectList: Array<IProject>
-  updateList$: PropFunction<(project: IProject, type: string) => void>
+  updateList$: PropFunction<(project: IProject, type: ProjectCategory) => void>
 }
 
 export const ProjectList = component$<ProjectListProps>(
@@ -27,17 +28,6 @@ export const ProjectList = component$<ProjectListProps>(
         //   : (el.parentElement!.style.opacity = '1')
       }
     )
-
-    function getColor(id: number, len: number) {
-      const colors = [
-        `linear-gradient(0deg, rgba(255,255,255,1) ${len}%, rgba(0,0,255,0.6) 100%)`,
-        `linear-gradient(0deg, rgba(255,255,255,1) ${len}%, rgba(0,255,139,0.6) 100%)`,
-        `linear-gradient(0deg, rgba(255,255,255,1) ${len}%, rgba(161,0,255,0.6) 100%)`,
-        `linear-gradient(0deg, rgba(255,255,255,1) ${len}%, rgba(255,0,0,0.6) 100%)`,
-      ]
-
-      return colors[id % colors.length]
-    }
 
     const onHover = $(
       (e: QwikMouseEvent<HTMLDivElement, MouseEvent>, project: IProject) => {

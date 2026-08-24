@@ -6,6 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import YouTube from 'react-youtube'
 import type { IProject } from '~/routes'
+import { parseYouTubeVideoId } from './Project.helpers'
 // import { useState } from 'react'
 
 export interface ProjectProps {
@@ -48,12 +49,10 @@ const RProject = ({ project }: { project: IProject }) => {
   const isClient = typeof window !== 'undefined'
 
   if (isClient && project.videoLink) {
-    const pattern =
-      /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:embed\/|v\/|watch\?v=)|youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^\s&?/]+)/
-    const match = project.videoLink.match(pattern)
-    if (match && match[1]) {
+    const videoId = parseYouTubeVideoId(project.videoLink)
+    if (videoId) {
       carousel.push(
-        <YouTube key={match[1]} videoId={match[1]} className="h-full" />
+        <YouTube key={videoId} videoId={videoId} className="h-full" />
       )
     }
   }
