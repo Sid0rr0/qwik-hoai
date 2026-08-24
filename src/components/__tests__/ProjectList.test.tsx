@@ -1,4 +1,10 @@
-import { $, component$, useContextProvider, useSignal, useStore } from '@builder.io/qwik'
+import {
+  $,
+  component$,
+  useContextProvider,
+  useSignal,
+  useStore,
+} from '@builder.io/qwik'
 import { createDOM } from '@builder.io/qwik/testing'
 import { describe, expect, test } from 'vitest'
 import { SelectedProjectsTypeContext } from '~/contexts'

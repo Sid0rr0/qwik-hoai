@@ -54,7 +54,9 @@ describe('Info', () => {
       results: [
         makeResult({
           text: 'About me',
-          links: [{ link: 'https://a.example', text: 'Site', linkText: 'Visit' }],
+          links: [
+            { link: 'https://a.example', text: 'Site', linkText: 'Visit' },
+          ],
         }),
       ],
     })

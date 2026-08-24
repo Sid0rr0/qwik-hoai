@@ -35,9 +35,7 @@ describe('Navbar', () => {
 
     await render(<Host />)
 
-    expect(screen.querySelector('header')?.className).toContain(
-      'from-design'
-    )
+    expect(screen.querySelector('header')?.className).toContain('from-design')
     const [designButton, artButton] = Array.from(
       screen.querySelectorAll('button')
     )
@@ -87,15 +85,15 @@ describe('Navbar', () => {
     const buttons = () => Array.from(screen.querySelectorAll('button'))
     const infoButton = buttons().find((b) => b.textContent === 'info')!
     await userEvent(infoButton, 'click')
-    expect(
-      screen.querySelector('[data-testid="info-open"]')?.textContent
-    ).toBe('true')
+    expect(screen.querySelector('[data-testid="info-open"]')?.textContent).toBe(
+      'true'
+    )
 
     const [, artButton] = Array.from(screen.querySelectorAll('button'))
     await userEvent(artButton, 'click')
 
-    expect(
-      screen.querySelector('[data-testid="info-open"]')?.textContent
-    ).toBe('false')
+    expect(screen.querySelector('[data-testid="info-open"]')?.textContent).toBe(
+      'false'
+    )
   })
 })
